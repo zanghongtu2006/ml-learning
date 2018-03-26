@@ -29,7 +29,7 @@ def classify0(in_x, data_set, labels, k):
     #
     sorted_dist_indicies = distances.argsort()
     # (2)选择距离最小的k个点
-    class_count = {}
+    class_count = {}  # in_x和所有已知点的距离
     for i in range(k):
         vote_i_label = labels[sorted_dist_indicies[i]]
         class_count[vote_i_label] = class_count.get(vote_i_label, 0) + 1
