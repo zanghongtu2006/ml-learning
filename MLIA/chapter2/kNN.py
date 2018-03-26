@@ -40,8 +40,9 @@ def classify0(in_x, data_set, labels, k):
     return sorted_class_count[0][0]
 
 
-group, label = create_data_set()
-print group
-print label
-x = classify0([1, 2], group, label, 3)
-print x
+if __name__ == '__main__':
+    group, label = create_data_set()
+    print group
+    print label
+    x = classify0([1, 2], group, label, 3)
+    print x
