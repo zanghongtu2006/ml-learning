@@ -70,9 +70,34 @@ def file_2_matrix(filename):
     return return_mat, class_label_vector
 
 
-if __name__ == '__main__':
-    dating_data_mat, label = file_2_matrix('datingTestSet2.txt')
+def showData(mat, label):
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.scatter(dating_data_mat[:, 1], dating_data_mat[:, 2])
+    # 输出矩阵的第2,3列数据
+    # ax.scatter(dating_data_mat[:, 1], dating_data_mat[:, 2])
+    # 输出矩阵的第2,列数据，使用色彩，尺寸表示
+    # 横轴是飞行里程数(0),纵轴是游戏时间(1),彩色点是得分
+    ax.scatter(mat[:, 0], mat[:, 1],
+               15.0 * array(label), 15.0 * array(label))
     plt.show()
+
+
+def autoNorm(data_set):
+    # 每列最小值
+    min_vals = data_set.min(0)
+    # 每列最大值
+    max_vals = data_set.max(0)
+    ranges = max_vals - min_vals
+    norm_data_set = zeros(shape(data_set))
+    m = data_set.shape[0]
+    norm_data_set = data_set - tile(min_vals, (m, 1))
+    norm_data_set = norm_data_set / tile(ranges, (m, 1))
+    return norm_data_set, ranges, min_vals
+
+
+if __name__ == '__main__':
+    dating_data_mat, dating_data_label = file_2_matrix('datingTestSet2.txt')
+    norm_dating_data_mat, norm_ranges, norm_min_vals = autoNorm(dating_data_mat)
+    print(dating_data_mat)
+    print(norm_dating_data_mat)
+    showData(norm_dating_data_mat, dating_data_label)
