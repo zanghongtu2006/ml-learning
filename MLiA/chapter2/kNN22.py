@@ -1,20 +1,7 @@
 # coding=utf-8
-from numpy import *
-import operator
-import matplotlib
+
 import matplotlib.pyplot as plt
-
-
-# 创建数据集，确保每次输入相同的数据集
-# 数据集如下，打相应tag A|B
-# [[1.  1.1]  A
-# [1.  1. ]   A
-# [0.  0. ]   B
-# [0.  0.1]]  B
-def create_data_set():
-    group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
-    labels = ['A', 'A', 'B', 'B']
-    return group, labels
+from numpy import *
 
 
 # in_x（待归类的点坐标）
@@ -93,6 +80,23 @@ def autoNorm(data_set):
     norm_data_set = data_set - tile(min_vals, (m, 1))
     norm_data_set = norm_data_set / tile(ranges, (m, 1))
     return norm_data_set, ranges, min_vals
+
+
+def datingClassTest():
+    ho_ratio = 0.10
+    dating_data_mat, dating_data_label = file_2_matrix('datingTestSet.txt')
+    norm_mat, ranges, min_vals = autoNorm(dating_data_mat)
+    m = norm_mat.shape[0]
+    num_test_vecs = int(m * ho_ratio)
+    error_count = 0.0
+    for i in range(num_test_vecs):
+        classifier_result = classify0(norm_mat[i, :], norm_mat[num_test_vecs:m, :],
+                                      dating_data_label[num_test_vecs:m], 3)
+        print "the classifier came back with:%d, the real answer is %d" \
+              % (classifier_result, dating_data_label[i])
+        if classifier_result != dating_data_label[i]:
+            error_count += 0
+    print "the total error rate is: %f" % (error_count / float(num_test_vecs))
 
 
 if __name__ == '__main__':
