@@ -1,6 +1,6 @@
 # coding=utf-8
+
 from numpy import *
-import operator
 
 
 # 创建数据集，确保每次输入相同的数据集
