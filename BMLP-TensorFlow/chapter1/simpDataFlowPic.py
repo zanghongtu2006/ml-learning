@@ -2,6 +2,8 @@
 # -*- coding:utf-8 -*-
 # Author Hongtu Zang
 # @Time: 18-3-31 下午10:08
+
+# 输出pb格式和实际书中不符，待后期研究
 import tensorflow as tf
 
 g = tf.Graph()
