@@ -13,3 +13,5 @@ simpDataFlowPic是创建一个简单的数据流图，看实际运行结果和�
 ## 2.5 各种库的使用
 ### scikit-learn
 https://scikit-learn.org/stable
+一个基于Python变成语言的开源机器学习库。
+它具备各种分类，回归，聚类算法，可以用Python数值和科学计算库Numpy以及SciPy互操作
