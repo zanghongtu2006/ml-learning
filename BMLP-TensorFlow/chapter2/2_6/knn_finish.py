@@ -3,13 +3,11 @@
 # Author Hongtu Zang
 # @Time: 18-4-11 下午7:53
 
-import tensorflow as tf
-import numpy as np
 import time
 
-import matplotlib
 import matplotlib.pyplot as plt
-
+import numpy as np
+import tensorflow as tf
 from sklearn.datasets.samples_generator import make_blobs
 from sklearn.datasets.samples_generator import make_circles
 

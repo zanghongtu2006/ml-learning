@@ -2,10 +2,10 @@
 # -*- coding:utf-8 -*-
 # Author Hongtu Zang
 # @Time: 18-4-9 下午11:18
-import tensorflow as tf
-from sklearn import datasets
 import matplotlib.pyplot as plt
 import numpy as np
+import tensorflow as tf
+from sklearn import datasets
 
 N = 200
 K = 2
