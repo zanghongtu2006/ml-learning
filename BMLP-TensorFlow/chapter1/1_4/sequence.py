@@ -15,15 +15,15 @@ listy = tf.constant([4, 5, 8, 9])
 boolx = tf.constant([[True, False], [False, True]])
 
 # 返回input最小值的索引index
-print tf.argmin(x, 1).eval()
+print(tf.argmin(x, 1).eval())
 
-print tf.argmax(x, 1).eval()
+print(tf.argmax(x, 1).eval())
 
 # 原书中API，该版本已无此API
 # print tf.listdiff(listx, listy)[0].eval()
 
 # 值为true的坐标
-print tf.where(boolx).eval()
+print(tf.where(boolx).eval())
 
 # 去重
-print tf.unique(listx)[0].eval()
+print(tf.unique(listx)[0].eval())

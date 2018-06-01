@@ -23,7 +23,7 @@ def classify0(in_x, data_set, labels, k):
         vote_i_label = labels[sorted_dist_indicies[i]]
         class_count[vote_i_label] = class_count.get(vote_i_label, 0) + 1
     # (3)排序
-    sorted_class_count = sorted(class_count.iteritems(),
+    sorted_class_count = sorted(class_count.items(),
                                 key=operator.itemgetter(1),
                                 reverse=True)
     return sorted_class_count[0][0]
@@ -92,11 +92,11 @@ def datingClassTest():
     for i in range(num_test_vecs):
         classifier_result = classify0(norm_mat[i, :], norm_mat[num_test_vecs:m, :],
                                       dating_data_label[num_test_vecs:m], 3)
-        print "the classifier came back with:%d, the real answer is %d" \
-              % (classifier_result, dating_data_label[i])
+        print("the classifier came back with:%d, the real answer is %d" \
+              % (classifier_result, dating_data_label[i]))
         if classifier_result != dating_data_label[i]:
             error_count += 0
-    print "the total error rate is: %f" % (error_count / float(num_test_vecs))
+    print("the total error rate is: %f" % (error_count / float(num_test_vecs)))
 
 
 if __name__ == '__main__':

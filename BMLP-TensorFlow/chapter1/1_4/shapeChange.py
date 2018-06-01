@@ -12,18 +12,18 @@ x = tf.constant([[2, 5, 3, -5],
                  [6, 1, 4, 0]])
 
 # 输出矩阵形状
-print tf.shape(x).eval()
+print(tf.shape(x).eval())
 
 # 输出矩阵元素个数
-print tf.size(x).eval()
+print(tf.size(x).eval())
 
 # 输出矩阵维度
-print tf.rank(x).eval()
+print(tf.rank(x).eval())
 
 # 重新排列矩阵
-print tf.reshape(x, [8, 2]).eval()
+print(tf.reshape(x, [8, 2]).eval())
 
-print tf.squeeze(x).eval()
+print(tf.squeeze(x).eval())
 
 # 插入维度1进入一个tensor中
-print tf.expand_dims(x, 1).eval()
+print(tf.expand_dims(x, 1).eval())

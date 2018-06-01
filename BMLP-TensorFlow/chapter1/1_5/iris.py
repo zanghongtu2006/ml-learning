@@ -23,7 +23,7 @@ with tf.Session() as session:
 
     session.run(filename_queue.enqueue("iris.csv"))
     for i in range(100):
-        print session.run(target)
+        print(session.run(target))
         coord.request_stop()
         coord.join(threads)
 

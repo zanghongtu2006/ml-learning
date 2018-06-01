@@ -6,11 +6,11 @@ x = tf.placeholder(tf.float32, [None, 784])
 w = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
 y = tf.nn.softmax(tf.matmul(x, w) + b)
-print y
+print(y)
 y_ = tf.placeholder(tf.float32, [None, 10])
 cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y),
                                               reduction_indices=[1]))
-print cross_entropy
+print(cross_entropy)
 
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 tf.global_variables_initializer().run()

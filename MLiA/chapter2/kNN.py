@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from numpy import *
-
+import operator
 
 # 创建数据集，确保每次输入相同的数据集
 # 数据集如下，打相应tag A|B
@@ -34,7 +34,7 @@ def classify0(in_x, data_set, labels, k):
         vote_i_label = labels[sorted_dist_indicies[i]]
         class_count[vote_i_label] = class_count.get(vote_i_label, 0) + 1
     # (3)排序
-    sorted_class_count = sorted(class_count.iteritems(),
+    sorted_class_count = sorted(class_count.items(),
                                 key=operator.itemgetter(1),
                                 reverse=True)
     return sorted_class_count[0][0]
@@ -42,7 +42,7 @@ def classify0(in_x, data_set, labels, k):
 
 if __name__ == '__main__':
     group, label = create_data_set()
-    print group
-    print label
+    print(group)
+    print(label)
     x = classify0([1, 2], group, label, 3)
-    print x
+    print(x)

@@ -12,10 +12,10 @@ tens1 = tf.constant([[2, 5, 3, -5],
                      [6, 1, 4, 0],
                      [6, 1, 4, 0]])
 
-print tf.segment_sum(tens1, seg_ids).eval()
+print(tf.segment_sum(tens1, seg_ids).eval())
 
-print tf.segment_prod(tens1, seg_ids).eval()
+print(tf.segment_prod(tens1, seg_ids).eval())
 
-print tf.segment_min(tens1, seg_ids).eval()
+print(tf.segment_min(tens1, seg_ids).eval())
 
-print tf.segment_mean(tens1, seg_ids).eval()
+print(tf.segment_mean(tens1, seg_ids).eval())
